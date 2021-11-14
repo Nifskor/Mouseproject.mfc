@@ -65,6 +65,9 @@ BEGIN_MESSAGE_MAP(CMouseprojectDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_CTLCOLOR()
+	ON_BN_CLICKED(IDC_BUTTON_EXIT, &CMouseprojectDlg::OnBnClickedButtonExit)
+	ON_BN_CLICKED(IDC_BUTTON_START, &CMouseprojectDlg::OnBnClickedButtonStart)
 END_MESSAGE_MAP()
 
 
@@ -73,33 +76,11 @@ END_MESSAGE_MAP()
 BOOL CMouseprojectDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-
-	// 시스템 메뉴에 "정보..." 메뉴 항목을 추가합니다.
-
-	// IDM_ABOUTBOX는 시스템 명령 범위에 있어야 합니다.
-	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
-	ASSERT(IDM_ABOUTBOX < 0xF000);
-
-	CMenu* pSysMenu = GetSystemMenu(FALSE);
-	if (pSysMenu != nullptr)
-	{
-		BOOL bNameValid;
-		CString strAboutMenu;
-		bNameValid = strAboutMenu.LoadString(IDS_ABOUTBOX);
-		ASSERT(bNameValid);
-		if (!strAboutMenu.IsEmpty())
-		{
-			pSysMenu->AppendMenu(MF_SEPARATOR);
-			pSysMenu->AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);
-		}
-	}
-
-	// 이 대화 상자의 아이콘을 설정합니다.  응용 프로그램의 주 창이 대화 상자가 아닐 경우에는
-	//  프레임워크가 이 작업을 자동으로 수행합니다.
-	SetIcon(m_hIcon, TRUE);			// 큰 아이콘을 설정합니다.
-	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
-
-	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	//제목 글꼴
+	m_font.CreateFont(50, 0, 0, 0, FW_NORMAL, FALSE, FALSE, 0, DEFAULT_CHARSET,
+		OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY,
+		DEFAULT_PITCH | FF_SWISS, _T("12롯데마트드림Bold"));
+	GetDlgItem(IDC_STATIC_TITLE)->SetFont(&m_font);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -153,3 +134,27 @@ HCURSOR CMouseprojectDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+//게임 제목 색 변경
+HBRUSH CMouseprojectDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	if (pWnd->GetDlgCtrlID() == IDC_STATIC_TITLE)
+		pDC->SetTextColor(RGB(222, 172, 107));
+	return hbr;
+}
+
+
+void CMouseprojectDlg::OnBnClickedButtonExit() //종료 버튼
+{
+	if (AfxMessageBox(_T("정말 종료하시겠습니까?"), MB_YESNO) == IDYES) {
+		OnOK();
+	}
+}
+
+
+void CMouseprojectDlg::OnBnClickedButtonStart() //시작 버튼
+{
+	Dialog.DoModal();
+}

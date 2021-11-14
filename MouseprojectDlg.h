@@ -3,7 +3,7 @@
 //
 
 #pragma once
-
+#include "GameSetting.h" //GameSetting Dialog
 
 // CMouseprojectDlg 대화 상자
 class CMouseprojectDlg : public CDialogEx
@@ -31,4 +31,10 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	CFont m_font;
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg void OnBnClickedButtonExit();
+	GameSetting Dialog;
+	afx_msg void OnBnClickedButtonStart();
 };

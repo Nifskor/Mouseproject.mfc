@@ -184,6 +184,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="GameSetting.h" />
     <ClInclude Include="Mouseproject.h" />
     <ClInclude Include="MouseprojectDlg.h" />
     <ClInclude Include="pch.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameSetting.cpp" />
     <ClCompile Include="Mouseproject.cpp" />
     <ClCompile Include="MouseprojectDlg.cpp" />
     <ClCompile Include="pch.cpp">
