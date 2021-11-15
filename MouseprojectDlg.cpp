@@ -68,6 +68,9 @@ BEGIN_MESSAGE_MAP(CMouseprojectDlg, CDialogEx)
 	ON_WM_CTLCOLOR()
 	ON_BN_CLICKED(IDC_BUTTON_EXIT, &CMouseprojectDlg::OnBnClickedButtonExit)
 	ON_BN_CLICKED(IDC_BUTTON_START, &CMouseprojectDlg::OnBnClickedButtonStart)
+	ON_COMMAND(ID_MENU_GUIDE, &CMouseprojectDlg::OnMenuGuide)
+	ON_COMMAND(ID_MENU_INFORMATION, &CMouseprojectDlg::OnMenuInformation)
+	ON_COMMAND(ID_MENU_EXIT, &CMouseprojectDlg::OnMenuExit)
 END_MESSAGE_MAP()
 
 
@@ -148,13 +151,26 @@ HBRUSH CMouseprojectDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 
 void CMouseprojectDlg::OnBnClickedButtonExit() //종료 버튼
 {
-	if (AfxMessageBox(_T("정말 종료하시겠습니까?"), MB_YESNO) == IDYES) {
-		OnOK();
-	}
+	if (AfxMessageBox(_T("정말 종료하시겠습니까?"), MB_YESNO) == IDYES) {  OnOK();  }
 }
 
 
 void CMouseprojectDlg::OnBnClickedButtonStart() //시작 버튼
 {
 	Dialog.DoModal();
+}
+
+
+void CMouseprojectDlg::OnMenuGuide() { //메뉴 - 게임 방법
+	MessageBox(_T("[고양이가 된 쥐 - 게임 방법]\n\n[게임 규칙]\n제한시간 내에 화면에 나타나는 도형이\n사라지기 전에 마우스를 이용해 이동시키세요!\n\n1. 메인 화면에서 시작 버튼을 누릅니다.\n2. GameSetting 창에서 게임 설정을 정한 후 확인을 누르면 게임이 시작됩니다."));
+}
+
+
+void CMouseprojectDlg::OnMenuInformation() { //메뉴 - 프로그램 정보
+	MessageBox(_T("[게임 제목]\n고양이가 된 쥐\n\n[팀 이름]\n물풍선 (MFC)\n\n[팀원]\n동의대학교 컴퓨터소프트웨어공학과\n김성민 20173142\n박상현 20183145\n최인수 20173236\n\n[프로젝트 기간]\n2021/11/10 ~ 2021/12/10"));
+}
+
+
+void CMouseprojectDlg::OnMenuExit() { //메뉴 - 종료
+	if (AfxMessageBox(_T("정말 종료하시겠습니까?"), MB_YESNO) == IDYES) {  OnOK();  }
 }

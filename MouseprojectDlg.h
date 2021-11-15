@@ -37,4 +37,7 @@ public:
 	afx_msg void OnBnClickedButtonExit();
 	GameSetting Dialog;
 	afx_msg void OnBnClickedButtonStart();
+	afx_msg void OnMenuGuide();
+	afx_msg void OnMenuInformation();
+	afx_msg void OnMenuExit();
 };
