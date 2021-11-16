@@ -1,6 +1,6 @@
 ﻿[고양이가 된 쥐]
 물풍선 (MFC)
-test
+
 ◎ 시작 Button
 ‑ 게임 설정 Modal Dialog 생성 (완료)
 ‑ [보류] 난이도 선택 Radio 버튼 (원 사라지는 타이밍)
