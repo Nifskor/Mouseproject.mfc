@@ -4,6 +4,7 @@
 
 #pragma once
 #include "GameSetting.h" //GameSetting Dialog
+#include "GameSetting.h"
 
 // CMouseprojectDlg 대화 상자
 class CMouseprojectDlg : public CDialogEx

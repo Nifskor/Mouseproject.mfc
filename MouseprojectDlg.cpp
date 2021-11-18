@@ -158,6 +158,11 @@ void CMouseprojectDlg::OnBnClickedButtonExit() //종료 버튼
 void CMouseprojectDlg::OnBnClickedButtonStart() //시작 버튼
 {
 	Dialog.DoModal();
+	if (Dialog.OK) {
+		Invalidate(TRUE);
+		CClientDC dc(this);
+		dc.Rectangle(100, 100, 140, 140);
+	}
 }
 
 

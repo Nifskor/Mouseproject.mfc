@@ -29,13 +29,18 @@ void GameSetting::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(GameSetting, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON2, &GameSetting::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON1, &GameSetting::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
-
-// GameSetting 메시지 처리기
-
+void GameSetting::OnBnClickedButton1() //확인 버튼
+{
+	OK = true;
+	OnOK();
+}
 
 void GameSetting::OnBnClickedButton2() //취소 버튼
 {
+	OK = false;
 	OnOK();
 }
+
