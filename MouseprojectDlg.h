@@ -4,7 +4,7 @@
 
 #pragma once
 #include "GameSetting.h" //GameSetting Dialog
-#include "GameSetting.h"
+#include "Playing.h" //게임 실행 창 (Playing)
 
 // CMouseprojectDlg 대화 상자
 class CMouseprojectDlg : public CDialogEx
@@ -41,4 +41,5 @@ public:
 	afx_msg void OnMenuGuide();
 	afx_msg void OnMenuInformation();
 	afx_msg void OnMenuExit();
+	Playing GameDialog;
 };
