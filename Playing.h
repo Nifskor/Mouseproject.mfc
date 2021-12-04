@@ -22,4 +22,16 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
+
+	int x1 = 0; //원 출력 좌표
+	int y1 = 0;
+
+	bool attack = false;
+	int score = 0; //스코어
+
+	CPoint m_point; //마우스 좌표 (우클릭 메뉴에 사용)
+	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
+	afx_msg void OnExit();
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	int m_score;
 };
