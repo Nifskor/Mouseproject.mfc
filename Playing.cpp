@@ -31,6 +31,12 @@ BOOL Playing::OnInitDialog(){
 		brush.CreateSolidBrush(RGB(0, 0, 255));
 	}
 
+	if (easy) 
+		Create_time = 1000; //1초
+	else if (mid)
+		Create_time = 500; //0.5초
+	else if (hard)
+		Create_time = 300; //0.3초
 
 	return TRUE;
 }
@@ -53,7 +59,7 @@ void Playing::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_SCORE, m_score);
 
 	m_score = score;
-	SetTimer(0, 1000, NULL); //원 생성 타이머
+	SetTimer(0, Create_time, NULL); //원 생성 타이머
 }
 
 
@@ -81,12 +87,13 @@ void Playing::OnTimer(UINT_PTR nIDEvent) //timer 메시지
 		CClientDC dc(this);
 		dc.SelectObject(&brush);
 		dc.Ellipse(x1 , y1, x1+50, y1+50); //랜덤 원 출력
+
 		if (attack) { //명중 시 score ++
 			score++;
 			attack = false;
 		}
-		else{ //대기시간
-			Sleep(1000);
+		else { //대기시간
+			Sleep(Create_time);
 			Invalidate(TRUE);
 		}
 		break;
@@ -116,7 +123,8 @@ void Playing::OnMouseMove(UINT nFlags, CPoint point) //마우스 커서 움직�
 	if ((m_point.x > x1) && (m_point.x < x1+50) && (m_point.y > y1) && (m_point.y < y1 + 50)) { //마우스와 원의 좌표가 일치하면
 		attack = true; //score를 올리기 위해 사용
 		Invalidate(TRUE);
-		SetTimer(0, 300, NULL);
+		KillTimer(0);
+		SetTimer(0, Create_time, NULL);
 	}
 
 	CDialog::OnMouseMove(nFlags, point);

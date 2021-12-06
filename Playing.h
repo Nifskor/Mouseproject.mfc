@@ -25,9 +25,10 @@ public:
 
 	int x1 = 0; //원 출력 좌표
 	int y1 = 0;
+	int Create_time; //원 생성 시간
+	int score = 0; //스코어
 
 	bool attack = false;
-	int score = 0; //스코어
 
 	CPoint m_point; //마우스 좌표 (우클릭 메뉴에 사용)
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
