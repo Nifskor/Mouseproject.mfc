@@ -105,15 +105,15 @@ void Playing::OnTimer(UINT_PTR nIDEvent) //timer 메시지
 void Playing::OnContextMenu(CWnd* /*pWnd*/, CPoint point) //우클릭 메뉴 메시지
 {
 	CMenu menu;
-	menu.LoadMenuW(IDR_MENU_PLAYING);
-	//menu.CreatePopupMenu();
-	CMenu* pMenu = menu.GetSubMenu(0);
-	pMenu->TrackPopupMenu(TPM_LEFTALIGN, point.x, point.y, AfxGetMainWnd());
+	menu.LoadMenu(IDR_MENU_PLAYING);
+	CMenu* mnuPopupMenu = menu.GetSubMenu(0);
+	ASSERT(mnuPopupMenu);
+		mnuPopupMenu->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this);
 }
 
 
 void Playing::OnExit() //나가기 메뉴 / TODO
-{   if (AfxMessageBox(_T("정말 종료하시겠습니까?"), MB_YESNO) == IDYES) { OnOK(); }   }
+{   if (AfxMessageBox(_T("정말 종료하시겠습니까?"), MB_YESNO) == IDYES) { exit(0); }   }
 
 
 
