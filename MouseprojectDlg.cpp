@@ -158,11 +158,7 @@ void CMouseprojectDlg::OnBnClickedButtonExit() //종료 버튼
 void CMouseprojectDlg::OnBnClickedButtonStart() //시작 버튼
 {
 	Dialog.DoModal();
-	if (Dialog.OK) {
-		//Invalidate(TRUE);
-		OnOK(); //화면 지우기가 안 되서 걍 새 창 띄우기로 했음
-		GameDialog.DoModal(); //게임 실행 창
-	}
+	//GameDialog.DoModal(); //게임 실행 창
 }
 
 

@@ -38,30 +38,44 @@ END_MESSAGE_MAP()
 void GameSetting::OnBnClickedButton1() //확인 버튼
 {
 	UpdateData(true);
-	switch(m_level){ //난이도 그룹
+		OK = true;
+		switch (m_level) { //난이도 그룹
 		case 0: //쉬움 선택 시
-			easy = true;
+			GameDialog.easy = true;
+			GameDialog.mid = false;
+			GameDialog.hard = false;
 			break;
 		case 1: //보통 선택 시
-			mid = true;
+			GameDialog.easy = false;
+			GameDialog.mid = true;
+			GameDialog.hard = false;
 			break;
 		case 2: //어려움 선택시
-			hard = true;
+			GameDialog.easy = false;
+			GameDialog.mid = false;
+			GameDialog.hard = true;
 			break;
-	}
-	switch (m_color) { //색깔 그룹
-	case 0: //빨강 선택 시
-		red = true;
-		break;
-	case 1: //초록 선택 시
-		green = true;
-		break;
-	case 2: //노랑 선택시
-		yellow = true;
-		break;
-	}
-		OK = true;
+		}
+		switch (m_color) { //색깔 그룹
+		case 0: //빨강 선택 시
+			GameDialog.red = true;
+			GameDialog.green = false;
+			GameDialog.blue = false;
+			break;
+		case 1: //초록 선택 시
+			GameDialog.red = false;
+			GameDialog.green = true;
+			GameDialog.blue = false;
+			break;
+		case 2: //노랑 선택시
+			GameDialog.red = false;
+			GameDialog.green = false;
+			GameDialog.blue = true;
+			break;
+		}
 		OnOK(); //창 닫기
+		GameDialog.DoModal(); //게임 실행 창
+		UpdateData(false);
 }
 
 void GameSetting::OnBnClickedButton2() //취소 버튼
@@ -69,4 +83,3 @@ void GameSetting::OnBnClickedButton2() //취소 버튼
 	OK = false;
 	OnOK();
 }
-

@@ -1,6 +1,5 @@
 ﻿#pragma once
 
-
 // Playing 대화 상자
 
 class Playing : public CDialog
@@ -18,6 +17,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
+	virtual BOOL OnInitDialog();
 
 	DECLARE_MESSAGE_MAP()
 public:
@@ -34,4 +34,15 @@ public:
 	afx_msg void OnExit();
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	int m_score;
+
+	//GameSetting에서 불러올 변수들
+	bool easy;
+	bool mid;
+	bool hard;
+	bool red;
+	bool green;
+	bool blue;
+
+	CBrush brush; //색깔 원 brush
+	CBrush* oldBrush; //색깔 원 oldBrush
 };

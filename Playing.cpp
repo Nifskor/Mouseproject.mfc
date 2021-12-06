@@ -13,11 +13,27 @@
 
 #include <windows.h> //sleep 함수
 
-
-
 // Playing 대화 상자
 
 IMPLEMENT_DYNAMIC(Playing, CDialog)
+
+BOOL Playing::OnInitDialog(){
+	CDialog::OnInitDialog();
+
+	//원 색깔 지정
+	if (red) {
+		brush.CreateSolidBrush(RGB(255, 0, 0));
+	}
+	else if (green) {
+		brush.CreateSolidBrush(RGB(0, 255, 0));
+	}
+	else if (blue) {
+		brush.CreateSolidBrush(RGB(0, 0, 255));
+	}
+
+
+	return TRUE;
+}
 
 Playing::Playing(CWnd* pParent /*=nullptr*/)
 	: CDialog(IDD_PLAYING_DIALOG, pParent)
@@ -30,12 +46,14 @@ Playing::~Playing()
 {
 }
 
+
 void Playing::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	SetTimer(0, 1000, NULL); //원 생성 타이머
 	DDX_Text(pDX, IDC_EDIT_SCORE, m_score);
+
 	m_score = score;
+	SetTimer(0, 1000, NULL); //원 생성 타이머
 }
 
 
@@ -54,7 +72,6 @@ void Playing::OnTimer(UINT_PTR nIDEvent) //timer 메시지
 {
 	UpdateData(true);
 	CDialog::OnTimer(nIDEvent);
-
 	switch (nIDEvent){
 	case 0:
 		srand((unsigned int)time(NULL)); //랜덤 값 함수
@@ -62,6 +79,7 @@ void Playing::OnTimer(UINT_PTR nIDEvent) //timer 메시지
 		y1 = ((rand() % 10) * 100);
 
 		CClientDC dc(this);
+		dc.SelectObject(&brush);
 		dc.Ellipse(x1 , y1, x1+50, y1+50); //랜덤 원 출력
 		if (attack) { //명중 시 score ++
 			score++;
@@ -100,5 +118,6 @@ void Playing::OnMouseMove(UINT nFlags, CPoint point) //마우스 커서 움직�
 		Invalidate(TRUE);
 		SetTimer(0, 300, NULL);
 	}
+
 	CDialog::OnMouseMove(nFlags, point);
 }
