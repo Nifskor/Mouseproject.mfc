@@ -34,7 +34,8 @@ public:
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	afx_msg void OnExit();
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
-	int m_score;
+	int m_score; //스코어 Edit Control
+	int m_time; //시간 Edit Control
 
 	//GameSetting에서 불러올 변수들
 	bool easy;
@@ -46,4 +47,5 @@ public:
 
 	CBrush brush; //색깔 원 brush
 	CBrush* oldBrush; //색깔 원 oldBrush
+
 };

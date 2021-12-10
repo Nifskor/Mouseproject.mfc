@@ -101,10 +101,6 @@ void CMouseprojectDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-// 대화 상자에 최소화 단추를 추가할 경우 아이콘을 그리려면
-//  아래 코드가 필요합니다.  문서/뷰 모델을 사용하는 MFC 애플리케이션의 경우에는
-//  프레임워크에서 이 작업을 자동으로 수행합니다.
-
 void CMouseprojectDlg::OnPaint()
 {
 	if (IsIconic())
@@ -158,7 +154,6 @@ void CMouseprojectDlg::OnBnClickedButtonExit() //종료 버튼
 void CMouseprojectDlg::OnBnClickedButtonStart() //시작 버튼
 {
 	Dialog.DoModal();
-	//GameDialog.DoModal(); //게임 실행 창
 }
 
 

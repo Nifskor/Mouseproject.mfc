@@ -25,6 +25,8 @@
 #define IDC_RADIO_RED                   1012
 #define IDC_RADIO_GREEN                 1013
 #define IDC_RADIO_YELLO                 1014
+#define IDC_EDIT_TIME                   1015
+#define IDC_EDIT2                       1016
 #define ID_32771                        32771
 #define ID_32772                        32772
 #define ID_32773                        32773
@@ -45,7 +47,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        136
 #define _APS_NEXT_COMMAND_VALUE         32784
-#define _APS_NEXT_CONTROL_VALUE         1015
+#define _APS_NEXT_CONTROL_VALUE         1017
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
