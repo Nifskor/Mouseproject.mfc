@@ -28,5 +28,4 @@ public:
 	CString m_level; //레벨 Edit Control
 	CString m_ranking; //랭킹 Edit Control
 	afx_msg void OnBnClickedButtonExit(); //종료 버튼
-	afx_msg void OnBnClickedButtonRestart(); //메인 화면 버튼
 };

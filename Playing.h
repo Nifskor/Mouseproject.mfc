@@ -47,7 +47,6 @@ public:
 	bool blue;
 
 	CBrush brush; //색깔 원 brush
-	CBrush* oldBrush; //색깔 원 oldBrush
 
 	Result ResultDialog; //결과 창
 };

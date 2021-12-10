@@ -50,7 +50,7 @@ BOOL Playing::OnInitDialog() {
 Playing::Playing(CWnd* pParent /*=nullptr*/)
 	: CDialog(IDD_PLAYING_DIALOG, pParent)
 	, m_score(0)
-	, m_time(31) //31초로 초기화 / TODO 시간 31초로
+	, m_time(30)
 {
 
 }

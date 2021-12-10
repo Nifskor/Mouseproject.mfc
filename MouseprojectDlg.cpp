@@ -85,6 +85,8 @@ BOOL CMouseprojectDlg::OnInitDialog()
 		DEFAULT_PITCH | FF_SWISS, _T("HY견고딕"));
 	GetDlgItem(IDC_STATIC_TITLE)->SetFont(&m_font);
 
+	restart = false;
+
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
 

@@ -46,7 +46,6 @@ void Result::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(Result, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_EXIT, &Result::OnBnClickedButtonExit)
-	ON_BN_CLICKED(IDC_BUTTON_RESTART, &Result::OnBnClickedButtonRestart)
 END_MESSAGE_MAP()
 
 
@@ -55,11 +54,5 @@ END_MESSAGE_MAP()
 
 void Result::OnBnClickedButtonExit() //종료 버튼
 {
-	if (AfxMessageBox(_T("정말 종료하시겠습니까?"), MB_YESNO) == IDYES) { OnOK(); }
-}
-
-
-void Result::OnBnClickedButtonRestart() //메인 화면 버튼
-{
-	OnOK();
+	if (AfxMessageBox(_T("정말 종료하시겠습니까?"), MB_YESNO) == IDYES) { exit(0); }
 }

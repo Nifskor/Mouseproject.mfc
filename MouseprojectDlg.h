@@ -42,4 +42,5 @@ public:
 	afx_msg void OnMenuInformation();
 	afx_msg void OnMenuExit();
 	Playing GameDialog;
+	bool restart;
 };
