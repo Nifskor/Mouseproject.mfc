@@ -153,6 +153,7 @@ void CMouseprojectDlg::OnBnClickedButtonExit() //종료 버튼
 
 void CMouseprojectDlg::OnBnClickedButtonStart() //시작 버튼
 {
+	//OnOK();
 	Dialog.DoModal();
 }
 

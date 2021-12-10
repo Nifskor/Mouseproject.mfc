@@ -1,6 +1,13 @@
 ﻿// Playing.cpp: 구현 파일
 //원 생성 범위 : (50, 50, 100, 100) ~ (550, 550, 600, 600)
 
+/*
+[랭킹 집계 기준] //이거 보고서에 넣어주면 좋겠음 :D
+쉬움 : 15점 - S, 12점 - A, 8점 - B, 이하 - C
+보통 : 24점 - S, 22점 - A, 18점 - B, 이하 - C
+어려움 : 30점 - S, 20점 - A, 15점 - B, 이하 - C
+*/
+
 #include "pch.h"
 #include "Mouseproject.h"
 #include "Playing.h"
@@ -46,7 +53,7 @@ BOOL Playing::OnInitDialog() {
 Playing::Playing(CWnd* pParent /*=nullptr*/)
 	: CDialog(IDD_PLAYING_DIALOG, pParent)
 	, m_score(0)
-	, m_time(4) //31초로 초기화 / TODO 시간 31초로
+	, m_time(10) //31초로 초기화 / TODO 시간 31초로
 {
 
 }
@@ -107,7 +114,45 @@ void Playing::OnTimer(UINT_PTR nIDEvent) //timer 메시지
 			if (m_time == 0) { //0초가 된다면
 				KillTimer(0);
 				KillTimer(1);
+				ResultDialog.m_score = m_score; //결과창 score에 값 전달
+
+				//난이도 별 구분
+				if (easy) {
+					ResultDialog.m_level = _T("쉬움"); //결과창 난이도에 값 전달
+					if (m_score > 15) //랭킹 집계 / 맨 상단 주석 참고
+						ResultDialog.m_ranking = _T("S");
+					else if (m_score > 12)
+						ResultDialog.m_ranking = _T("A");
+					else if (m_score > 8)
+						ResultDialog.m_ranking = _T("B");
+					else
+						ResultDialog.m_ranking = _T("C");
+				}
+				else if (mid) {
+					ResultDialog.m_level = _T("보통");
+					if (m_score > 24)
+						ResultDialog.m_ranking = _T("S");
+					else if (m_score > 22)
+						ResultDialog.m_ranking = _T("A");
+					else if (m_score > 18)
+						ResultDialog.m_ranking = _T("B");
+					else
+						ResultDialog.m_ranking = _T("C");
+				}
+				else if (hard){
+					ResultDialog.m_level = _T("어려움");
+					if (m_score > 30)
+						ResultDialog.m_ranking = _T("S");
+					else if (m_score > 20)
+						ResultDialog.m_ranking = _T("A");
+					else if (m_score > 15)
+						ResultDialog.m_ranking = _T("B");
+					else
+						ResultDialog.m_ranking = _T("C");
+					}
+
 				OnOK();
+				ResultDialog.DoModal(); //결과 창 출력
 			}
 			break;
 		} //case 1 끝
@@ -126,7 +171,7 @@ void Playing::OnContextMenu(CWnd* /*pWnd*/, CPoint point) //우클릭 메뉴 메
 }
 
 
-void Playing::OnExit() //나가기 메뉴 / TODO
+void Playing::OnExit() //나가기 메뉴
 {
 	if (AfxMessageBox(_T("정말 종료하시겠습니까?"), MB_YESNO) == IDYES) { exit(0); }
 }

@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Result.h"
 
 // Playing 대화 상자
 
@@ -48,4 +49,5 @@ public:
 	CBrush brush; //색깔 원 brush
 	CBrush* oldBrush; //색깔 원 oldBrush
 
+	Result ResultDialog; //결과 창
 };

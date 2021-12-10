@@ -13,6 +13,7 @@
 #define IDR_MYMENU                      132
 #define IDD_PLAYING_DIALOG              133
 #define IDR_MENU_PLAYING                135
+#define IDD_RESULT_DIALOG               136
 #define IDC_STATIC_TITLE                1000
 #define IDC_BUTTON_START                1001
 #define IDC_BUTTON_EXIT                 1002
@@ -26,7 +27,10 @@
 #define IDC_RADIO_GREEN                 1013
 #define IDC_RADIO_YELLO                 1014
 #define IDC_EDIT_TIME                   1015
-#define IDC_EDIT2                       1016
+#define IDC_STATIC_END                  1019
+#define IDC_EDIT_LEVEL                  1021
+#define IDC_EDIT_RANKING                1023
+#define IDC_BUTTON_RESTART              1024
 #define ID_32771                        32771
 #define ID_32772                        32772
 #define ID_32773                        32773
@@ -45,9 +49,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        136
+#define _APS_NEXT_RESOURCE_VALUE        138
 #define _APS_NEXT_COMMAND_VALUE         32784
-#define _APS_NEXT_CONTROL_VALUE         1017
+#define _APS_NEXT_CONTROL_VALUE         1025
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
