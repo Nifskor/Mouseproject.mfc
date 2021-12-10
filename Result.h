@@ -1,5 +1,4 @@
 ﻿#pragma once
-//#include "MouseprojectDlg.h" //메인 화면
 
 
 // Result 대화 상자
@@ -29,7 +28,5 @@ public:
 	CString m_level; //레벨 Edit Control
 	CString m_ranking; //랭킹 Edit Control
 	afx_msg void OnBnClickedButtonExit(); //종료 버튼
-	afx_msg void OnBnClickedButtonRestart();
-
-	//CMouseprojectDlg MainDialog; //메인 화면
+	afx_msg void OnBnClickedButtonRestart(); //메인 화면 버튼
 };

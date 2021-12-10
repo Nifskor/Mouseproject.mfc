@@ -16,7 +16,7 @@ BOOL Result::OnInitDialog() {
 	//게임 종료! 글꼴
 	m_font.CreateFont(50, 0, 0, 0, FW_NORMAL, FALSE, FALSE, 0, DEFAULT_CHARSET,
 		OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY,
-		DEFAULT_PITCH | FF_SWISS, _T("메이플스토리 Bold"));
+		DEFAULT_PITCH | FF_SWISS, _T("HY견고딕"));
 	GetDlgItem(IDC_STATIC_END)->SetFont(&m_font);
 
 	return TRUE;
@@ -62,5 +62,4 @@ void Result::OnBnClickedButtonExit() //종료 버튼
 void Result::OnBnClickedButtonRestart() //메인 화면 버튼
 {
 	OnOK();
-	//MainDialog.DoModal();
 }

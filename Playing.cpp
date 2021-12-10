@@ -28,15 +28,12 @@ BOOL Playing::OnInitDialog() {
 	CDialog::OnInitDialog();
 
 	//원 색깔 지정
-	if (red) {
+	if (red)
 		brush.CreateSolidBrush(RGB(255, 0, 0));
-	}
-	else if (green) {
+	else if (green)
 		brush.CreateSolidBrush(RGB(0, 255, 0));
-	}
-	else if (blue) {
+	else if (blue)
 		brush.CreateSolidBrush(RGB(0, 0, 255));
-	}
 
 	if (easy)
 		Create_time = 1000; //1초
@@ -53,7 +50,7 @@ BOOL Playing::OnInitDialog() {
 Playing::Playing(CWnd* pParent /*=nullptr*/)
 	: CDialog(IDD_PLAYING_DIALOG, pParent)
 	, m_score(0)
-	, m_time(10) //31초로 초기화 / TODO 시간 31초로
+	, m_time(31) //31초로 초기화 / TODO 시간 31초로
 {
 
 }
@@ -150,7 +147,6 @@ void Playing::OnTimer(UINT_PTR nIDEvent) //timer 메시지
 					else
 						ResultDialog.m_ranking = _T("C");
 					}
-
 				OnOK();
 				ResultDialog.DoModal(); //결과 창 출력
 			}

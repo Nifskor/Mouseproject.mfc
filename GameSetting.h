@@ -30,12 +30,6 @@ public:
 	int m_level; //난이도 그룹
 	int m_color; //색깔 그룹
 
-	//bool easy;
-	//bool mid;
-	//bool hard;
-	//bool red;
-	//bool green;
-	//bool yellow;
-
 	Playing GameDialog;
+	GameSetting* thisDialog;
 };

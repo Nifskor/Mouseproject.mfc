@@ -82,7 +82,7 @@ BOOL CMouseprojectDlg::OnInitDialog()
 	//제목 글꼴
 	m_font.CreateFont(50, 0, 0, 0, FW_NORMAL, FALSE, FALSE, 0, DEFAULT_CHARSET,
 		OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY,
-		DEFAULT_PITCH | FF_SWISS, _T("12롯데마트드림Bold"));
+		DEFAULT_PITCH | FF_SWISS, _T("HY견고딕"));
 	GetDlgItem(IDC_STATIC_TITLE)->SetFont(&m_font);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
