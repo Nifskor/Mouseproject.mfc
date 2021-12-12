@@ -81,7 +81,7 @@ END_MESSAGE_MAP()
 
 // Playing 메시지 처리기
 
-
+//보고서 (랜덤 원 생성, Timer, brush 색 지정, ) ~ 108줄
 void Playing::OnTimer(UINT_PTR nIDEvent) //timer 메시지
 {
 	UpdateData(true);
@@ -173,7 +173,7 @@ void Playing::OnExit() //나가기 메뉴
 }
 
 
-
+//보고서 (마우스 - 마우스 커서가 원에 닿을 때의 메시지) ~185줄
 void Playing::OnMouseMove(UINT nFlags, CPoint point) //마우스 커서 움직임 메시지
 {
 	m_point = point;
@@ -183,6 +183,5 @@ void Playing::OnMouseMove(UINT nFlags, CPoint point) //마우스 커서 움직�
 		KillTimer(0);
 		SetTimer(0, Create_time, NULL);
 	}
-
 	CDialog::OnMouseMove(nFlags, point);
 }

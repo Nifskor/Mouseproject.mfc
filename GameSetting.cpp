@@ -35,6 +35,7 @@ BEGIN_MESSAGE_MAP(GameSetting, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, &GameSetting::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
+//보고서 (Radio Button) ~ 80줄
 void GameSetting::OnBnClickedButton1() //확인 버튼
 {
 	UpdateData(true);
