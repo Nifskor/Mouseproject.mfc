@@ -2,7 +2,7 @@
 //원 생성 범위 : (50, 50, 100, 100) ~ (550, 550, 600, 600)
 
 /*
-[랭킹 집계 기준] //이거 보고서에 넣어주면 좋겠음 :D
+[랭킹 집계 기준]
 쉬움 : 15점 - S, 12점 - A, 8점 - B, 이하 - C
 보통 : 24점 - S, 22점 - A, 18점 - B, 이하 - C
 어려움 : 30점 - S, 20점 - A, 15점 - B, 이하 - C
@@ -80,8 +80,6 @@ END_MESSAGE_MAP()
 
 
 // Playing 메시지 처리기
-
-//보고서 (랜덤 원 생성, Timer, brush 색 지정, ) ~ 108줄
 void Playing::OnTimer(UINT_PTR nIDEvent) //timer 메시지
 {
 	UpdateData(true);
@@ -172,8 +170,6 @@ void Playing::OnExit() //나가기 메뉴
 	if (AfxMessageBox(_T("정말 종료하시겠습니까?"), MB_YESNO) == IDYES) { exit(0); }
 }
 
-
-//보고서 (마우스 - 마우스 커서가 원에 닿을 때의 메시지) ~185줄
 void Playing::OnMouseMove(UINT nFlags, CPoint point) //마우스 커서 움직임 메시지
 {
 	m_point = point;

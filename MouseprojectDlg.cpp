@@ -159,7 +159,6 @@ void CMouseprojectDlg::OnBnClickedButtonStart() //시작 버튼
 	Dialog.DoModal();
 }
 
-//보고서 (menu 리소스) ~ 175줄
 void CMouseprojectDlg::OnMenuGuide() { //메뉴 - 게임 방법
 	MessageBox(_T("[고양이가 된 쥐 - 게임 방법]\n\n[게임 규칙]\n제한시간 내에 화면에 나타나는 도형이\n사라지기 전에 마우스를 이용해 이동시키세요!\n\n1. 메인 화면에서 시작 버튼을 누릅니다.\n2. GameSetting 창에서 게임 설정을 정한 후 확인을 누르면 게임이 시작됩니다.\n3. 게임 실행 시 우클릭으로 게임을 종료할 수 있습니다."));
 }
